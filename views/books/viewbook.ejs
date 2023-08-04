@@ -1,0 +1,51 @@
+<style>
+   .card{
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+    transition: 0.5s;
+    width: 18%;
+    height: 250px;
+    margin-right: 2%;
+   }
+   .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    scale: 1.05;
+   }
+   .container {
+    padding: 2px 16px;
+   }
+</style>
+<h2>Search Book</h2>
+<form action="getbook" method="GET">
+    <div>
+        <label for="">Title</label>
+        <input type="text" name="title" value="<%= searchOption.title %>">
+        <input type="submit" name="submit" value="search">
+    </div>
+    <br>
+    <div style="display: flex; flex: left;">
+       <% bookData.forEach((book)=>{%>
+        <div class="card">
+        <div style="text-align: center;">
+            <img src="<%= book.cover %>" width="100px" height="150px" style="box-shadow: 5px 5px 10px rgb(55, 53, 53);">
+        </div>
+
+        <div class="container">
+        <div style="font-size: 18px;font-weight: bold;text-align: center;">
+            <%= book.title %>
+        </div>
+        <div style="text-align: center;">
+            <%= book.author %>
+        </div>
+        <div style="text-align: center;">
+            <% if(book.title!= null && book.title !== ''){%>
+            <a href="readbook?title=<%= book.title %>">Read Book</a>
+            <%}%>
+        </div>
+        </div>
+
+
+        </div>
+        <br>
+       <%})%>
+    </div>
+</form>

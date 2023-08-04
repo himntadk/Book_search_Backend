@@ -1,0 +1,60 @@
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    .container{
+        width: 40%;
+        height: 260px;
+        box-shadow: 10px 10px 20px rgb(78, 76, 76);
+    }
+    input[type=text],input[type=file]{
+        width: 70%;
+        padding: 12px;
+        outline: none;
+        border-radius: 4px;
+        resize: vertical;
+    }
+    label{
+        width: 24%;
+        padding: 3%;
+        display: inline-block;
+    }
+    .bottom{
+        text-align: center;
+    }
+    input[type=submit],button {
+        width: 60px;
+        padding: 2px;
+        margin: 5px;
+        box-shadow: 2px 2px 2px rgb(80, 77, 77);
+    }
+    a {
+        text-decoration: none;
+        color: black;
+    }
+</style>
+<h2>Add Books</h2>
+<div class="container">
+<form action="createbook" method="POST" enctype="multipart/form-data">
+    <div>
+        <label for="">Title</label>
+        <input type="text" name="title" value="<%= data.title%>">
+    </div>
+    <div>
+        <label for="">Author</label>
+        <input type="text" name="author" value="<%= data.author%>">
+    </div>
+    <div>
+        <label for="">Cover</label>
+        <input type="file" name="cover" id="">
+    </div>
+    <div>
+        <label for="">Book</label>
+        <input type="file" name="book">
+    </div>
+    <div class="bottom">
+    <input type="submit" name="submit" value="Add">
+    <button><a href="/">Cancel</a></button>
+    </div>
+</form>
+</div>
